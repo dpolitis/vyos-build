@@ -1,0 +1,10 @@
+version: "2"
+services:
+  builder:
+    image: vyos/vyos-build:crux
+    privileged: true
+    volumes:
+      - /dev:/dev
+      - $PWD:/vyos:rw
+    restart: "no"
+    command: ["1.2.4"]
