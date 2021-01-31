@@ -5,6 +5,6 @@ services:
     privileged: true
     volumes:
       - /dev:/dev
-      - $PWD:/vyos:rw
+      - /home/dpolitis/workspace/vyos-build-1.2.6:/vyos:rw
     restart: "no"
-    command: ["1.2.4"]
+    command: ["1.2.6"]

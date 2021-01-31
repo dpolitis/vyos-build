@@ -1,7 +1,12 @@
 #!/bin/bash
-./configure --architecture amd64 \
+
+sudo make clean
+sudo make purge
+
+sudo ./configure --architecture amd64 \
 --build-by "civisd@gmail.com" \
---build-type release --version ${1}
+--build-type release --version ${1} \
+--ova-signing-key /root/builder.pem
 
 sudo make iso
 sudo cp build/vyos-${1}-amd64.iso .
