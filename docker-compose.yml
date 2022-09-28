@@ -1,10 +1,10 @@
 version: "2"
 services:
   builder:
-    image: vyos/vyos-build:crux
+    image: vyos/vyos-build:equuleus
     privileged: true
     volumes:
       - /dev:/dev
-      - /home/dpolitis/workspace/vyos-build-1.2.6:/vyos:rw
+      - /home/dpolitis/workspace/vyos-build-1.3.2:/vyos:rw
     restart: "no"
-    command: ["1.2.6"]
+    command: ["1.3.2"]

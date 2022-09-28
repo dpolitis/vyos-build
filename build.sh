@@ -3,6 +3,12 @@
 sudo make clean
 sudo make purge
 
+major=$(grep loop /proc/devices | cut -c3)
+for index in {0..5}
+do
+  sudo -E mknod /dev/loop$i b $major $i
+done
+
 sudo ./configure --architecture amd64 \
 --build-by "civisd@gmail.com" \
 --build-type release --version ${1} \

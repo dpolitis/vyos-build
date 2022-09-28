@@ -1,13 +1,9 @@
-FROM vyos/vyos-build:crux
+FROM vyos/vyos-build:equuleus
 
 # Install various dependancies for OVA build
 ARG DISPLAY=':0'
-ADD misc/binary_grub /usr/lib/live/build/binary_grub
-ADD misc/binary_grub2 /usr/lib/live/build/binary_grub2
 ADD misc/ovftool.bundle /tmp/ovftool.bundle
-RUN chmod +x /tmp/ovftool.bundle && \
-    chmod +x /usr/lib/live/build/binary_grub && \
-    chmod +x /usr/lib/live/build/binary_grub2
+RUN chmod +x /tmp/ovftool.bundle
 
 RUN apt-get update && apt-get install -y \
     libncursesw5 \
@@ -32,4 +28,4 @@ RUN chmod +x /usr/local/bin/build.sh
 WORKDIR /vyos
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh", "/usr/local/bin/build.sh"]
-CMD ["1.2.6"]
+CMD ["1.3.2"]
