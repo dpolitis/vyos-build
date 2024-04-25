@@ -28,5 +28,7 @@ usermod --append --groups sudo $USER_NAME
 sudo chown $NEW_UID:$NEW_GID /home/$USER_NAME
 export HOME=/home/$USER_NAME
 
+mount -i -o remount,exec,dev /vyos                                                                                                                       
+
 # Execute process
 exec /usr/sbin/gosu $USER_NAME "$@"
